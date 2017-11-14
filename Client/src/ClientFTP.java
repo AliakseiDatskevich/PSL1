@@ -1,9 +1,12 @@
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class ClientFTP {
@@ -23,47 +26,18 @@ public class ClientFTP {
 	    		+ "LIST - wyswitlic liste plikow katalogu serwera\n"
 	    		+ "GET - pobrac plik o nazwie z serwera i zapisac w katalogu klienta\n"
 	    		+ "SHOW - wyswietlic zawartosc pliku w katalogu serwera w konsoli klienta\n"
-	    		+ "QUIT - zamuka klienta\n"
+	    		+ "QUIT - zamyka klienta\n"
 	    		+ "SHUTDOWN - zamyka serwer\n");
 	    BufferedReader inu = new BufferedReader(new InputStreamReader(System.in));
 	    String fuser,fserver;
 	    while ((fuser = inu.readLine())!=null) {
-	        switch (fuser) {
-	            case "LIST":
-	            	out.println(fuser);
-	            	String nazwa = inu.readLine();
-	      	      	fserver = in.readLine();
-	      	      	System.out.println(fserver);
-	                break;
-	            case "GET":
-	            	out.println(fuser);
-	      	      	fserver = in.readLine();
-	      	      	System.out.println(fserver);
-	                break;
-	            case "SHOW" :
-	            	out.println(fuser);
-	      	      	fserver = in.readLine();
-	      	      	System.out.println(fserver);
-	            	break;
-	            case "QUIT" :
-	            	out.println(fuser);
-	      	      	fserver = in.readLine();
-	      	      	System.out.println(fserver);
-	            	break;
-	            case "SHUTDOWN":
-	            	out.println(fuser);
-	      	      	fserver = in.readLine();
-	      	      	System.out.println(fserver);
-	            	break;
-	        }
-	            	
-	      out.println(fuser);
-	      fserver = in.readLine();
-	      System.out.println(fserver);
-	      if (fuser.equalsIgnoreCase("close")) break;
-	      if (fuser.equalsIgnoreCase("exit")) break;
+	    	out.println(fuser);
+	    	fserver = in.readLine();
+	    	System.out.println(fserver);
+			if (fuser.equalsIgnoreCase("quit")) {
+				break;
+			}
 	    }
-
 	    out.close();
 	    in.close();
 	    inu.close();
