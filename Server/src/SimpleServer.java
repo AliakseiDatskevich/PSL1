@@ -43,30 +43,23 @@ public class SimpleServer {
 	
 		System.out.println("Wait for messages");
 		while ((input = in.readLine()) != null) {
-			if(input.equalsIgnoreCase("LIST")) {
+			if(input.equalsIgnoreCase("list")) {
 				File f = new File("C:\\Users\\ealidat\\Downloads\\");
 				ArrayList<String> names = new ArrayList<String>(Arrays.asList(f.list()));
 				out.println("Folder conatin: " + names);
 				System.out.println(names);
 			}
-//			else if(input.equalsIgnoreCase("GET")) {
-//				 
-//			}
-//			else if(input.equalsIgnoreCase("SHOW")) {	
-//				
-//			}
-//			else if(input.equalsIgnoreCase("QUIT")) {
-//				
-//			}
-//			else if(input.equalsIgnoreCase("SHOTDOWN")) {	
-//				
-//			}
-//			else {	 
-//			}
-			out.close();
-			in.close();
-			fromclient.close();
-			servers.close();
+			
+			else if (input.equalsIgnoreCase("show")) {
+				out.println("Wpisz nazwe pliku:");
+			}
+			else if (input.equalsIgnoreCase("shutdown")) break;
+//			out.println("Dane wyslane klientem: "+input);
+//			System.out.println(input);
+		}
+		out.close();
+		in.close();
+		fromclient.close();
+		servers.close();
 		}
 	}
-}

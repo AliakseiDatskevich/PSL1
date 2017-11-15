@@ -33,6 +33,9 @@ public class ClientFTP {
 	    while ((fuser = inu.readLine())!=null) {
 	    	out.println(fuser);
 	    	fserver = in.readLine();
+	    	if (fserver.equalsIgnoreCase("Wpisz nazwe pliku:")) {
+	    		out.println(fuser);
+	    	}
 	    	System.out.println(fserver);
 			if (fuser.equalsIgnoreCase("quit")) {
 				break;
